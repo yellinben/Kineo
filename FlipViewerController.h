@@ -11,16 +11,22 @@
 @class FlipSeries;
 
 @interface FlipViewerController : NSWindowController <NSWindowDelegate> {
-	IBOutlet NSImageView *imageView;
-
+	IBOutlet NSImageView *imageView;	
+	
 	FlipSeries *flipSeries;
 	NSInteger currentImageIndex;
+	
+	BOOL isPlaying;
 }
+
+@property (readwrite) BOOL isPlaying;
+
 - (id)initWithFlipSeries:(FlipSeries *)series;
 
 - (IBAction)showPrevImage:(id)sender;
 - (IBAction)showNextImage:(id)sender;
 - (void)displayImageAtIndex:(NSInteger)index;
+- (IBAction)playPause:(id)sender;
 
 - (IBAction)print:(id)sender;
 

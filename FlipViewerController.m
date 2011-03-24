@@ -9,6 +9,11 @@
 #import "FlipViewerController.h"
 #import "FlipSeries.h"
 
+@interface FlipViewerController (Private)
+- (void)playUpdate:(NSTimer *)timer;
+@end
+
+
 @implementation FlipViewerController
 
 - (id)initWithFlipSeries:(FlipSeries *)series {
@@ -59,6 +64,37 @@
 	if (flipImage) {
 		[imageView setImage:flipImage];
 	}
+}
+
+- (IBAction)playPause:(id)sender {
+	self.isPlaying = !isPlaying;
+	
+	if ([sender isKindOfClass:[NSButton class]]) {
+		if (isPlaying)
+			[sender setTitle:@"Pause"];
+		else
+			[sender setTitle:@"Play"];
+	}
+}
+
+- (void)setIsPlaying:(BOOL)flag {
+	isPlaying = flag;
+	if (isPlaying) {
+		[NSTimer scheduledTimerWithTimeInterval:0.1 
+										 target:self 
+									   selector:@selector(playUpdate:) 
+									   userInfo:nil 
+										repeats:YES];
+	}
+}
+
+- (void)playUpdate:(NSTimer *)timer {
+	if (isPlaying) {
+		[self showNextImage:nil];
+	} else {
+		[timer invalidate];
+	}
+
 }
 		 
 - (IBAction)print:(id)sender {
