@@ -14,8 +14,10 @@
 	NSString *title;
 	NSDate *dateCreated;
 }
-@property (readonly) NSMutableArray *images;
+@property (nonatomic, readonly) NSMutableArray *images;
 @property (nonatomic,retain) NSString *title;
-@property (readonly) NSDate *dateCreated;
-- (void)addImage:(CIImage *)img;
+@property (nonatomic, readonly) NSDate *dateCreated;
+- (void)addImage:(NSImage *)img;
+- (NSImage *)getImage:(NSInteger)index;
+- (NSInteger)numberOfImages;
 @end

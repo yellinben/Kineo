@@ -10,15 +10,17 @@
 
 @class FlipSeries;
 
-@interface FlipViewerController : NSWindowController {
+@interface FlipViewerController : NSWindowController <NSWindowDelegate> {
 	IBOutlet NSImageView *imageView;
-	
-	FlipSeries *flipSeries; 
+
+	FlipSeries *flipSeries;
+	NSInteger currentImageIndex;
 }
 - (id)initWithFlipSeries:(FlipSeries *)series;
 
 - (IBAction)showPrevImage:(id)sender;
 - (IBAction)showNextImage:(id)sender;
+- (void)displayImageAtIndex:(NSInteger)index;
 
 - (IBAction)print:(id)sender;
 

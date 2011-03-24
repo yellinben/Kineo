@@ -7,16 +7,28 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <QTKit/QTKit.h>
 
-@class QTCaptureView, QTCaptureSession;
+/*@class QTCaptureView, QTCaptureSession, QTCaptureDecompressedVideoOutput;*/
+@class CIImage;
+@class FlipSeries;
 
 @interface CameraWindowController : NSWindowController {
 	IBOutlet QTCaptureView *captureView;
 	IBOutlet NSButton *recordButton;
+	IBOutlet NSTextField *frameCountLabel;
 	
-	QTCaptureSession *session;
+	QTCaptureSession *videoSession;
+	QTCaptureDecompressedVideoOutput  *videoOutput;
 	BOOL isRecording;
+	CVImageBufferRef currentImageBuffer;
+	
+	FlipSeries *currentFlipSeries;
+	NSInteger currentFlipCount;
 }
 @property (readonly) BOOL isRecording;
+@property (nonatomic, assign) CIImage *currentCameraImage;
+@property (nonatomic, assign) NSImage *currentImage;
+@property (nonatomic, assign) FlipSeries *currentFlipSeries;
 - (IBAction)startRecording:(id)sender; 
 @end

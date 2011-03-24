@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* KineoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* KineoAppDelegate.m */; };
+		369C153E133695570052F775 /* CameraWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369C153D133695570052F775 /* CameraWindowController.m */; };
+		369C15401336957A0052F775 /* Camera.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369C153F1336957A0052F775 /* Camera.xib */; };
+		369C15441336A1340052F775 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369C15431336A1340052F775 /* QTKit.framework */; };
+		369C155E1336A65A0052F775 /* FlipSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 369C155D1336A65A0052F775 /* FlipSeries.m */; };
+		369C15611336A7A40052F775 /* FlipViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369C15601336A7A40052F775 /* FlipViewerController.m */; };
+		369C15631336A7AD0052F775 /* FlipViewer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369C15621336A7AD0052F775 /* FlipViewer.xib */; };
+		369C15661336AC060052F775 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369C15651336AC060052F775 /* QuartzCore.framework */; };
+		369C15EC1336B72A0052F775 /* NSImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 369C15EB1336B72A0052F775 /* NSImage+Extras.m */; };
+		369C161C1336BA420052F775 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369C161B1336BA420052F775 /* Quartz.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -25,6 +34,19 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		369C153C133695570052F775 /* CameraWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraWindowController.h; sourceTree = "<group>"; };
+		369C153D133695570052F775 /* CameraWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraWindowController.m; sourceTree = "<group>"; };
+		369C153F1336957A0052F775 /* Camera.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Camera.xib; sourceTree = "<group>"; };
+		369C15431336A1340052F775 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		369C155C1336A65A0052F775 /* FlipSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipSeries.h; sourceTree = "<group>"; };
+		369C155D1336A65A0052F775 /* FlipSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipSeries.m; sourceTree = "<group>"; };
+		369C155F1336A7A40052F775 /* FlipViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipViewerController.h; sourceTree = "<group>"; };
+		369C15601336A7A40052F775 /* FlipViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipViewerController.m; sourceTree = "<group>"; };
+		369C15621336A7AD0052F775 /* FlipViewer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlipViewer.xib; sourceTree = "<group>"; };
+		369C15651336AC060052F775 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		369C15EA1336B72A0052F775 /* NSImage+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Extras.h"; sourceTree = "<group>"; };
+		369C15EB1336B72A0052F775 /* NSImage+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Extras.m"; sourceTree = "<group>"; };
+		369C161B1336BA420052F775 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Kineo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Kineo-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Kineo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kineo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -35,6 +57,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				369C15441336A1340052F775 /* QTKit.framework in Frameworks */,
+				369C15661336AC060052F775 /* QuartzCore.framework in Frameworks */,
+				369C161C1336BA420052F775 /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +71,14 @@
 			children = (
 				256AC3D80F4B6AC300CF3369 /* KineoAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* KineoAppDelegate.m */,
+				369C153C133695570052F775 /* CameraWindowController.h */,
+				369C153D133695570052F775 /* CameraWindowController.m */,
+				369C155C1336A65A0052F775 /* FlipSeries.h */,
+				369C155D1336A65A0052F775 /* FlipSeries.m */,
+				369C155F1336A7A40052F775 /* FlipViewerController.h */,
+				369C15601336A7A40052F775 /* FlipViewerController.m */,
+				369C15EA1336B72A0052F775 /* NSImage+Extras.h */,
+				369C15EB1336B72A0052F775 /* NSImage+Extras.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -103,6 +136,8 @@
 				8D1107310486CEB800E47090 /* Kineo-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				369C153F1336957A0052F775 /* Camera.xib */,
+				369C15621336A7AD0052F775 /* FlipViewer.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -112,6 +147,9 @@
 			children = (
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+				369C15431336A1340052F775 /* QTKit.framework */,
+				369C15651336AC060052F775 /* QuartzCore.framework */,
+				369C161B1336BA420052F775 /* Quartz.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -161,6 +199,8 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				369C15401336957A0052F775 /* Camera.xib in Resources */,
+				369C15631336A7AD0052F775 /* FlipViewer.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +213,10 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* KineoAppDelegate.m in Sources */,
+				369C153E133695570052F775 /* CameraWindowController.m in Sources */,
+				369C155E1336A65A0052F775 /* FlipSeries.m in Sources */,
+				369C15611336A7A40052F775 /* FlipViewerController.m in Sources */,
+				369C15EC1336B72A0052F775 /* NSImage+Extras.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

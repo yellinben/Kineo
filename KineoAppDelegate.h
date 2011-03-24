@@ -8,10 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface KineoAppDelegate : NSObject <NSApplicationDelegate> {
-    NSWindow *window;
-}
+@class CameraWindowController;
 
-@property (assign) IBOutlet NSWindow *window;
+@interface KineoAppDelegate : NSObject <NSApplicationDelegate> {
+    CameraWindowController *cameraController;
+}
 
 @end

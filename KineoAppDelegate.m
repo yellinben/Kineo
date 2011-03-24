@@ -7,13 +7,14 @@
 //
 
 #import "KineoAppDelegate.h"
+#import "CameraWindowController.h"
 
 @implementation KineoAppDelegate
 
-@synthesize window;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	// Insert code here to initialize your application 
+	cameraController = [[CameraWindowController alloc] 
+						initWithWindowNibName:@"Camera"];
+	[cameraController showWindow:nil];
 }
 
 @end

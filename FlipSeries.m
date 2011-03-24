@@ -22,8 +22,26 @@
 	return self;
 }
 
-- (void)addImage:(CIImage *)img {
+- (void)dealloc {
+	[images release];
+	self.title = nil;
+	[dateCreated release];
+	[super dealloc];
+}
+
+- (void)addImage:(NSImage *)img {
 	[images addObject:img];
+}
+
+- (NSImage *)getImage:(NSInteger)index {
+	if (index >= [images count])
+		return nil;
+	
+	return [images objectAtIndex:index];
+}
+
+- (NSInteger)numberOfImages {
+	return [images count];
 }
 
 @end
