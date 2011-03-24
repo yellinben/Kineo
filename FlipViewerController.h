@@ -12,6 +12,7 @@
 
 @interface FlipViewerController : NSWindowController <NSWindowDelegate> {
 	IBOutlet NSImageView *imageView;	
+	IBOutlet NSTextField *titleField;
 	
 	FlipSeries *flipSeries;
 	NSInteger currentImageIndex;
@@ -28,6 +29,7 @@
 - (void)displayImageAtIndex:(NSInteger)index;
 - (IBAction)playPause:(id)sender;
 
+- (IBAction)changeTitle:(id)sender;
 - (IBAction)print:(id)sender;
 
 @end

@@ -16,6 +16,8 @@
 
 @implementation FlipViewerController
 
+@synthesize isPlaying;
+
 - (id)initWithFlipSeries:(FlipSeries *)series {
 	if (self = [super initWithWindowNibName:@"FlipViewer"]) {
 		flipSeries = [series retain];
@@ -23,11 +25,9 @@
 	return self;
 }
 
-- (void)windowDidLoad {
-	// Set Window Title
-	NSString *title = [NSString stringWithFormat:@"Flip Book: %@",
-					   [flipSeries title], nil];
-	[self.window setTitle:title];
+- (void)windowDidLoad {	
+	[self.window setTitle:[flipSeries title]];
+	[titleField setStringValue:[flipSeries title]];
 	
 	// Image View
 	currentImageIndex = 0;	
@@ -95,6 +95,12 @@
 		[timer invalidate];
 	}
 
+}
+
+- (IBAction)changeTitle:(id)sender {
+	NSString *newTitle = [titleField stringValue];
+	flipSeries.title = newTitle;
+	[self.window setTitle:newTitle];
 }
 		 
 - (IBAction)print:(id)sender {
