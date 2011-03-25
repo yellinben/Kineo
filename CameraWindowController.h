@@ -10,11 +10,12 @@
 #import <QTKit/QTKit.h>
 
 /*@class QTCaptureView, QTCaptureSession, QTCaptureDecompressedVideoOutput;*/
+@class CameraView;
 @class CIImage;
 @class FlipSeries;
 
 @interface CameraWindowController : NSWindowController {
-	IBOutlet QTCaptureView *captureView;
+	IBOutlet CameraView *camView;
 	IBOutlet NSButton *recordButton;
 	IBOutlet NSTextField *frameCountLabel;
 	

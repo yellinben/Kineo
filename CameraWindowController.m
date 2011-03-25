@@ -7,6 +7,7 @@
 //
 
 #import "CameraWindowController.h"
+#import "CameraView.h"
 #import <QTKit/QTKit.h>
 #import <QuartzCore/CIImage.h>
 #import "FlipSeries.h"
@@ -45,7 +46,7 @@
 	[videoSession addOutput:videoOutput error:nil];
 	[videoSession startRunning];
 	
-	[captureView setCaptureSession:videoSession];
+	[camView setCaptureSession:videoSession];
 }
 
 - (void)setRecording:(BOOL)flag {
