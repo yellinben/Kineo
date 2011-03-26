@@ -10,7 +10,7 @@
 #import <QTKit/QTCaptureView.h>
 
 @interface CameraView : QTCaptureView {
-	
+	BOOL showFlash;
 }
 - (void)flashView;
 @end

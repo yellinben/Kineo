@@ -8,9 +8,16 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class PrintView, FlipSeries;
 
 @interface PrintController : NSWindowController {
-
+	IBOutlet PrintView *printView;
+	//PrintView *printView;
+	FlipSeries *flipSeries;
 }
-
+@property (nonatomic, retain) FlipSeries *flipSeries;
+- (id)initWithFlipSeries:(FlipSeries *)series;
+- (IBAction)openInPreview:(id)sender;
+- (IBAction)save:(id)sender;
+- (IBAction)print:(id)sender;
 @end

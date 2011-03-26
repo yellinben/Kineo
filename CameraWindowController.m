@@ -52,6 +52,8 @@
 - (void)setRecording:(BOOL)flag {
 	isRecording = flag;
 	
+	[recordButton setEnabled:!isRecording];
+	
 	if (isRecording) {
 		[videoSession startRunning];
 		self.currentFlipSeries = [[FlipSeries alloc] init];

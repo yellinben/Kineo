@@ -28,8 +28,6 @@
 	NSInteger currentFlipCount;
 }
 @property (readonly) BOOL isRecording;
-@property (nonatomic, assign) CIImage *currentCameraImage;
-@property (nonatomic, assign) NSImage *currentImage;
 @property (nonatomic, assign) FlipSeries *currentFlipSeries;
 - (IBAction)startRecording:(id)sender; 
 @end

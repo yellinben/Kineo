@@ -7,20 +7,51 @@
 //
 
 #import "PrintView.h"
-
+#import "FlipSeries.h"
 
 @implementation PrintView
 
-- (id)initWithFrame:(NSRect)frame {
+@synthesize flipSeries;
+
+- (id)initWithFlipSeries:(FlipSeries *)series frame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code here.
+        flipSeries = [series retain];
     }
     return self;
 }
 
+- (void)dealloc {
+	self.flipSeries = nil;
+	[super dealloc];
+}
+
 - (void)drawRect:(NSRect)dirtyRect {
-    // Drawing code here.
+	[[NSColor whiteColor] set];
+	NSRectFill(dirtyRect);
+	
+	if (flipSeries) {
+		int imgCount = 0;
+		for (NSImage *img in [flipSeries images]) {
+			NSSize origSize =  [img	size];
+			NSSize newSize = NSMakeSize(origSize.width/3, origSize.height/3);
+			NSRect imgRect = NSMakeRect(0, imgCount*newSize.height, 
+										newSize.width, newSize.height);
+			[img drawInRect:imgRect 
+					 fromRect:NSZeroRect 
+					operation:NSCompositeSourceOver 
+					 fraction:1.0];			
+			imgCount++;
+		}
+	}
+}
+
+- (void)setFlipSeries:(FlipSeries *)series {
+	if (![flipSeries isEqualTo:series]) {
+		[flipSeries release];
+		flipSeries = [series retain];
+	}
+	[self setNeedsDisplay:YES];
 }
 
 @end

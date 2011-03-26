@@ -8,6 +8,7 @@
 
 #import "FlipViewerController.h"
 #import "FlipSeries.h"
+#import "PrintController.h"
 
 @interface FlipViewerController (Private)
 - (void)playUpdate:(NSTimer *)timer;
@@ -104,6 +105,9 @@
 }
 		 
 - (IBAction)print:(id)sender {
+	PrintController *printController = [[PrintController alloc] 
+										initWithFlipSeries:flipSeries];
+	[printController showWindow:nil];
 }
 
 @end

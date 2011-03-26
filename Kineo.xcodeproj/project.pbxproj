@@ -13,6 +13,7 @@
 		36190918133D1C0800EFDDE3 /* PrintController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36190917133D1C0800EFDDE3 /* PrintController.m */; };
 		36190929133D1C2900EFDDE3 /* Print.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36190928133D1C2900EFDDE3 /* Print.xib */; };
 		3619092D133D1C3900EFDDE3 /* PrintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3619092C133D1C3900EFDDE3 /* PrintView.m */; };
+		36190946133E5F0D00EFDDE3 /* FlipDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 36190945133E5F0D00EFDDE3 /* FlipDocument.m */; };
 		369C153E133695570052F775 /* CameraWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369C153D133695570052F775 /* CameraWindowController.m */; };
 		369C15401336957A0052F775 /* Camera.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369C153F1336957A0052F775 /* Camera.xib */; };
 		369C15441336A1340052F775 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369C15431336A1340052F775 /* QTKit.framework */; };
@@ -45,6 +46,8 @@
 		36190928133D1C2900EFDDE3 /* Print.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Print.xib; sourceTree = "<group>"; };
 		3619092B133D1C3900EFDDE3 /* PrintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintView.h; sourceTree = "<group>"; };
 		3619092C133D1C3900EFDDE3 /* PrintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintView.m; sourceTree = "<group>"; };
+		36190944133E5F0D00EFDDE3 /* FlipDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipDocument.h; sourceTree = "<group>"; };
+		36190945133E5F0D00EFDDE3 /* FlipDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipDocument.m; sourceTree = "<group>"; };
 		369C153C133695570052F775 /* CameraWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraWindowController.h; sourceTree = "<group>"; };
 		369C153D133695570052F775 /* CameraWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraWindowController.m; sourceTree = "<group>"; };
 		369C153F1336957A0052F775 /* Camera.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Camera.xib; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				369C155D1336A65A0052F775 /* FlipSeries.m */,
 				369C155F1336A7A40052F775 /* FlipViewerController.h */,
 				369C15601336A7A40052F775 /* FlipViewerController.m */,
+				36190944133E5F0D00EFDDE3 /* FlipDocument.h */,
+				36190945133E5F0D00EFDDE3 /* FlipDocument.m */,
 				36190916133D1C0800EFDDE3 /* PrintController.h */,
 				36190917133D1C0800EFDDE3 /* PrintController.m */,
 				3619092B133D1C3900EFDDE3 /* PrintView.h */,
@@ -239,6 +244,7 @@
 				361908D5133BE66F00EFDDE3 /* CameraView.m in Sources */,
 				36190918133D1C0800EFDDE3 /* PrintController.m in Sources */,
 				3619092D133D1C3900EFDDE3 /* PrintView.m in Sources */,
+				36190946133E5F0D00EFDDE3 /* FlipDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

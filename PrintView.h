@@ -8,9 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class FlipSeries;
 
 @interface PrintView : NSView {
-
+	FlipSeries *flipSeries;
 }
-
+@property (nonatomic, retain) FlipSeries *flipSeries;
+- (id)initWithFlipSeries:(FlipSeries *)series frame:(NSRect)frame;
 @end
