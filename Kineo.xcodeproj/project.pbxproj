@@ -14,13 +14,13 @@
 		36190929133D1C2900EFDDE3 /* Print.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36190928133D1C2900EFDDE3 /* Print.xib */; };
 		3619092D133D1C3900EFDDE3 /* PrintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3619092C133D1C3900EFDDE3 /* PrintView.m */; };
 		36190946133E5F0D00EFDDE3 /* FlipDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 36190945133E5F0D00EFDDE3 /* FlipDocument.m */; };
+		36190B16133EA75D00EFDDE3 /* NSFileManager+TemporaryDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 36190B15133EA75D00EFDDE3 /* NSFileManager+TemporaryDirectory.m */; };
 		369C153E133695570052F775 /* CameraWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369C153D133695570052F775 /* CameraWindowController.m */; };
 		369C15401336957A0052F775 /* Camera.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369C153F1336957A0052F775 /* Camera.xib */; };
 		369C15441336A1340052F775 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369C15431336A1340052F775 /* QTKit.framework */; };
 		369C155E1336A65A0052F775 /* FlipSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 369C155D1336A65A0052F775 /* FlipSeries.m */; };
 		369C15611336A7A40052F775 /* FlipViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369C15601336A7A40052F775 /* FlipViewerController.m */; };
 		369C15631336A7AD0052F775 /* FlipViewer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369C15621336A7AD0052F775 /* FlipViewer.xib */; };
-		369C15661336AC060052F775 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369C15651336AC060052F775 /* QuartzCore.framework */; };
 		369C15EC1336B72A0052F775 /* NSImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 369C15EB1336B72A0052F775 /* NSImage+Extras.m */; };
 		369C161C1336BA420052F775 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369C161B1336BA420052F775 /* Quartz.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -48,6 +48,8 @@
 		3619092C133D1C3900EFDDE3 /* PrintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintView.m; sourceTree = "<group>"; };
 		36190944133E5F0D00EFDDE3 /* FlipDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipDocument.h; sourceTree = "<group>"; };
 		36190945133E5F0D00EFDDE3 /* FlipDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipDocument.m; sourceTree = "<group>"; };
+		36190B14133EA75D00EFDDE3 /* NSFileManager+TemporaryDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+TemporaryDirectory.h"; sourceTree = "<group>"; };
+		36190B15133EA75D00EFDDE3 /* NSFileManager+TemporaryDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+TemporaryDirectory.m"; sourceTree = "<group>"; };
 		369C153C133695570052F775 /* CameraWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraWindowController.h; sourceTree = "<group>"; };
 		369C153D133695570052F775 /* CameraWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraWindowController.m; sourceTree = "<group>"; };
 		369C153F1336957A0052F775 /* Camera.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Camera.xib; sourceTree = "<group>"; };
@@ -57,7 +59,6 @@
 		369C155F1336A7A40052F775 /* FlipViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipViewerController.h; sourceTree = "<group>"; };
 		369C15601336A7A40052F775 /* FlipViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipViewerController.m; sourceTree = "<group>"; };
 		369C15621336A7AD0052F775 /* FlipViewer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlipViewer.xib; sourceTree = "<group>"; };
-		369C15651336AC060052F775 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		369C15EA1336B72A0052F775 /* NSImage+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Extras.h"; sourceTree = "<group>"; };
 		369C15EB1336B72A0052F775 /* NSImage+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Extras.m"; sourceTree = "<group>"; };
 		369C161B1336BA420052F775 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
@@ -72,7 +73,6 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				369C15441336A1340052F775 /* QTKit.framework in Frameworks */,
-				369C15661336AC060052F775 /* QuartzCore.framework in Frameworks */,
 				369C161C1336BA420052F775 /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +101,8 @@
 				3619092C133D1C3900EFDDE3 /* PrintView.m */,
 				369C15EA1336B72A0052F775 /* NSImage+Extras.h */,
 				369C15EB1336B72A0052F775 /* NSImage+Extras.m */,
+				36190B14133EA75D00EFDDE3 /* NSFileManager+TemporaryDirectory.h */,
+				36190B15133EA75D00EFDDE3 /* NSFileManager+TemporaryDirectory.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -171,7 +173,6 @@
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 				369C15431336A1340052F775 /* QTKit.framework */,
-				369C15651336AC060052F775 /* QuartzCore.framework */,
 				369C161B1336BA420052F775 /* Quartz.framework */,
 			);
 			name = Frameworks;
@@ -245,6 +246,7 @@
 				36190918133D1C0800EFDDE3 /* PrintController.m in Sources */,
 				3619092D133D1C3900EFDDE3 /* PrintView.m in Sources */,
 				36190946133E5F0D00EFDDE3 /* FlipDocument.m in Sources */,
+				36190B16133EA75D00EFDDE3 /* NSFileManager+TemporaryDirectory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

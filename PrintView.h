@@ -10,9 +10,11 @@
 
 @class FlipSeries;
 
+//extern const NSRect kPageFrame;
+
 @interface PrintView : NSView {
 	FlipSeries *flipSeries;
 }
 @property (nonatomic, retain) FlipSeries *flipSeries;
-- (id)initWithFlipSeries:(FlipSeries *)series frame:(NSRect)frame;
+- (id)initWithFlipSeries:(FlipSeries *)series;
 @end

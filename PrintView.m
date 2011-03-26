@@ -9,12 +9,14 @@
 #import "PrintView.h"
 #import "FlipSeries.h"
 
+const NSRect kPageFrame = {0, 0, 2550, 3300};
+
 @implementation PrintView
 
 @synthesize flipSeries;
 
-- (id)initWithFlipSeries:(FlipSeries *)series frame:(NSRect)frame {
-    self = [super initWithFrame:frame];
+- (id)initWithFlipSeries:(FlipSeries *)series {
+    self = [super initWithFrame:kPageFrame];
     if (self) {
         flipSeries = [series retain];
     }
