@@ -25,7 +25,6 @@ const NSRect kPageFrame = {0, 0, 2550, 3300};
 
 - (void)dealloc {
 	self.flipSeries = nil;
-	[templateImage release];
 	[super dealloc];
 }
 
@@ -34,6 +33,8 @@ const NSRect kPageFrame = {0, 0, 2550, 3300};
 	NSRectFill(dirtyRect);
 	
 	if (flipSeries) {
+		//NSDictionary *labelAttrs = [NSDictionary dictionaryWithObjectsAndKeys:		
+		
 		NSSize imageFrameSize = NSMakeSize(354, 267);
 		NSSize stapleSize = NSMakeSize(68, 267);
 		float margin = 5.0;
@@ -41,26 +42,37 @@ const NSRect kPageFrame = {0, 0, 2550, 3300};
 		int numCols = 6;
 		int numRows = 8;
 				
-		int imgIndex = 0;
-		int rowIndex = 0;	
+		int imgCount = 0;
+		int rowIndex = 0;
+		BOOL showTitleBox = YES;
 		for (NSImage *img in [flipSeries images]) {														
-			float xPos = ((imgIndex * stapleSize.width) + stapleSize.width) +
-				(imgIndex * (imageFrameSize.width + margin));		
+			float xPos = ((imgCount * stapleSize.width) + stapleSize.width) +
+				(imgCount * (imageFrameSize.width + margin));		
 			float yPos = (dirtyRect.size.height - (rowIndex * (imageFrameSize.height+margin))) - imageFrameSize.height;
 			
 			// Draw Staple Box
 			NSRect stapleRect = NSMakeRect(xPos-stapleSize.width, yPos, 
 										   stapleSize.width, stapleSize.height);
-			[[NSColor grayColor] set];
-			NSRectFill(stapleRect);			
+			[[NSColor colorWithCalibratedWhite:0.230 alpha:1.000] set];
+			NSRectFill(stapleRect);							
 			
 			NSRect imgRect = NSMakeRect(xPos, yPos, 
 										imageFrameSize.width, imageFrameSize.height);
 
-			[img drawInRect:imgRect 
-					 fromRect:NSZeroRect 
-					operation:NSCompositeSourceOver 
-					 fraction:1.0];	
+			// Title Box
+			if (showTitleBox) {
+				[[NSColor colorWithCalibratedWhite:0.704 alpha:1.000] set];
+				NSFrameRect(imgRect);
+				showTitleBox = NO;
+			} else {
+				[img drawInRect:imgRect 
+					   fromRect:NSZeroRect 
+					  operation:NSCompositeSourceOver 
+					   fraction:1.0];
+				// Frame Count Label
+				/*[[NSFont fontWithName:@"Helvetica" size:20.0] set];
+				[[NSString stringWithFormat:@"%i", imgCount] drawAtPoint:stapleRect.origin];*/
+			}			
 			
 			// Draw Cut Line
 			NSBezierPath *cutLine = [NSBezierPath bezierPath];
@@ -71,11 +83,11 @@ const NSRect kPageFrame = {0, 0, 2550, 3300};
 			[cutLine lineToPoint:NSMakePoint(imageFrameSize.width+xPos+2, yPos+imageFrameSize.height)];
 			[cutLine stroke];
 			
-			imgIndex++;
+			imgCount++;
 
-			if (imgIndex > numCols) {
+			if (imgCount > numCols) {
 				rowIndex++;
-				imgIndex = 0;
+				imgCount = 0;
 				
 				// Draw Row Line
 				NSBezierPath *rowLine = [NSBezierPath bezierPath];

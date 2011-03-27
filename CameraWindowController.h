@@ -28,9 +28,13 @@
 	
 	FlipSeries *currentFlipSeries;
 	NSInteger currentFrameCount;
+	
+	NSInteger numFrames;
+	NSTimeInterval frameRate;
 }
 @property (readonly) BOOL isRecording;
 @property (nonatomic, assign) FlipSeries *currentFlipSeries;
 - (IBAction)startRecording:(id)sender; 
 - (IBAction)changeDevice:(id)sender;
+- (IBAction)showPreferences:(id)sender;
 @end

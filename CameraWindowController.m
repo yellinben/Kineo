@@ -13,6 +13,7 @@
 #import "FlipSeries.h"
 #import "FlipViewerController.h"
 #import "NSImage+Extras.h"
+#import "PreferencesController.h"
 
 #define kFrameCount 5
 #define kRecordRate 0.5
@@ -23,6 +24,7 @@
 - (void)updateDevice;
 - (void)devicesChanged:(NSNotification *)notification;
 - (void)setRecording:(BOOL)flag;
+- (void)prefsChanged:(NSNotification *)notification;
 @end
 
 @implementation CameraWindowController
@@ -35,6 +37,16 @@
 	[self setupCamera];
 	[frameCountLabel setHidden:YES];
 	[devicePicker removeAllItems];
+	
+	numFrames = [[[NSUserDefaults standardUserDefaults] 
+						 objectForKey:@"numFrames"] integerValue];
+	frameRate = (NSTimeInterval)[[[NSUserDefaults standardUserDefaults] 
+										 objectForKey:@"frameRate"] floatValue];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(prefsChanged:) 
+												 name:NSUserDefaultsDidChangeNotification 
+											   object:nil];
 }
 
 - (void)dealloc {
@@ -125,8 +137,8 @@
 		[videoSession startRunning];
 		self.currentFlipSeries = [[FlipSeries alloc] init];
 		currentFrameCount = 0;
-		[frameCountLabel setIntValue:kFrameCount];
-		[NSTimer scheduledTimerWithTimeInterval:kRecordRate	 
+		[frameCountLabel setIntValue:numFrames];
+		[NSTimer scheduledTimerWithTimeInterval:frameRate	 
 										 target:self 
 									   selector:@selector(recordingTimer:) 
 									   userInfo:nil 
@@ -163,13 +175,13 @@
 #pragma mark Recording
 
 - (void)recordingTimer:(NSTimer *)timer {
-	if (currentFrameCount <= kFrameCount) {
+	if (currentFrameCount <= numFrames) {
 		if (currentImageBuffer) {
 			CIImage *camImage = [CIImage imageWithCVImageBuffer:currentImageBuffer];
 			[currentFlipSeries addImage:
 			 [NSImage imageFromCIImage:camImage]];
 			
-			[frameCountLabel setIntValue:(kFrameCount-currentFrameCount)];
+			[frameCountLabel setIntValue:(numFrames-currentFrameCount)];
 			currentFrameCount++;
 		}
 	} else {
@@ -184,6 +196,17 @@
 		currentFrameCount = 0;
 	}
 
+}
+
+- (IBAction)showPreferences:(id)sender {
+	[[PreferencesController sharedPreferences] showWindow:nil];
+}
+
+- (void)prefsChanged:(NSNotification *)notification {
+	numFrames = [[[NSUserDefaults standardUserDefaults] 
+						 objectForKey:@"numFrames"] integerValue];
+	frameRate = (NSTimeInterval)[[[NSUserDefaults standardUserDefaults] 
+										 objectForKey:@"frameRate"] floatValue];
 }
 
 @end
