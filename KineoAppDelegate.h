@@ -13,8 +13,5 @@
 @interface KineoAppDelegate : NSObject <NSApplicationDelegate> {
 }
 - (IBAction)showPreferences:(id)sender;
-<<<<<<< HEAD
 - (IBAction)showCameraWindow:(id)sender;
-=======
->>>>>>> 4bc11762c3e0d0afced952a438aa4ca3b653c33f
 @end
