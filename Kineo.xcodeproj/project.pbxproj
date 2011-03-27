@@ -300,6 +300,7 @@
 				INFOPLIST_FILE = "Kineo-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Kineo;
+				SDKROOT = macosx10.5;
 			};
 			name = Debug;
 		};
