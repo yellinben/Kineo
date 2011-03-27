@@ -10,7 +10,7 @@
 
 @class FlipSeries;
 
-@interface FlipViewerController : NSWindowController <NSWindowDelegate> {
+@interface FlipViewerController : NSWindowController {
 	IBOutlet NSImageView *imageView;	
 	IBOutlet NSTextField *titleField;
 	

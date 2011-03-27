@@ -37,7 +37,7 @@
 
 + (CameraWindowController *)sharedCameraWindow;
 
-- (IBAction)startRecording:(id)sender; 
+- (IBAction)recordingAction:(id)sender; 
 - (IBAction)changeDevice:(id)sender;
 - (IBAction)showPreferences:(id)sender;
 @end

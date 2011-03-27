@@ -140,8 +140,6 @@
 - (void)setRecording:(BOOL)flag {
 	isRecording = flag;
 	
-	[recordButton setEnabled:!isRecording];
-	
 	if (isRecording) {
 		[videoSession startRunning];
 		self.currentFlipSeries = [[FlipSeries alloc] init];
@@ -151,16 +149,18 @@
 										 target:self 
 									   selector:@selector(recordingTimer:) 
 									   userInfo:nil 
-										repeats:YES];		
+										repeats:YES];
+		[recordButton setTitle:@"Stop"];
 	} else {
-		//[videoSession stopRunning];		
+		//[videoSession stopRunning];	
+		[recordButton setTitle:@"Make Flipbook"];
 	}
 
 	[frameCountLabel setHidden:!isRecording];
 }
 
-- (IBAction)startRecording:(id)sender {
-	[self setRecording:YES];	
+- (IBAction)recordingAction:(id)sender {
+	[self setRecording:!isRecording];	
 }
 
 #pragma mark Capture Delegate
@@ -184,24 +184,29 @@
 #pragma mark Recording
 
 - (void)recordingTimer:(NSTimer *)timer {
-	if (currentFrameCount <= numFrames) {
-		if (currentImageBuffer) {
-			CIImage *camImage = [CIImage imageWithCVImageBuffer:currentImageBuffer];
-			[currentFlipSeries addImage:
-			 [NSImage imageFromCIImage:camImage]];
+	if (isRecording) {
+		if (currentFrameCount <= numFrames) {
+			if (currentImageBuffer) {
+				CIImage *camImage = [CIImage imageWithCVImageBuffer:currentImageBuffer];
+				[currentFlipSeries addImage:
+				 [NSImage imageFromCIImage:camImage]];
+				
+				[frameCountLabel setIntValue:(numFrames-currentFrameCount)];
+				currentFrameCount++;
+			}
+		} else {
+			[timer invalidate];
+			[self setRecording:NO];
 			
-			[frameCountLabel setIntValue:(numFrames-currentFrameCount)];
-			currentFrameCount++;
+			// Open Flip Viewer
+			FlipViewerController *flipViewer = [[FlipViewerController alloc] initWithFlipSeries:currentFlipSeries];
+			[flipViewer showWindow:nil];
+			self.currentFlipSeries = nil;
+			
+			currentFrameCount = 0;
 		}
 	} else {
 		[timer invalidate];
-		[self setRecording:NO];
-		
-		// Open Flip Viewer
-		FlipViewerController *flipViewer = [[FlipViewerController alloc] initWithFlipSeries:currentFlipSeries];
-		[flipViewer showWindow:nil];
-		self.currentFlipSeries = nil;
-		
 		currentFrameCount = 0;
 	}
 

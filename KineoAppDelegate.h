@@ -10,7 +10,7 @@
 
 @class CameraWindowController;
 
-@interface KineoAppDelegate : NSObject <NSApplicationDelegate> {
+@interface KineoAppDelegate : NSObject {
 }
 - (IBAction)showPreferences:(id)sender;
 - (IBAction)showCameraWindow:(id)sender;

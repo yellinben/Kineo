@@ -109,6 +109,7 @@
 	PrintController *printController = [[PrintController alloc] 
 										initWithFlipSeries:flipSeries];
 	[printController showWindow:nil];
+	[self.window setTitle:flipSeries.title];
 }
 
 @end
