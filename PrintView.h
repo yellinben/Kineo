@@ -14,6 +14,7 @@
 
 @interface PrintView : NSView {
 	FlipSeries *flipSeries;
+	NSImage *templateImage;
 }
 @property (nonatomic, retain) FlipSeries *flipSeries;
 - (id)initWithFlipSeries:(FlipSeries *)series;

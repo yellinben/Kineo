@@ -19,12 +19,14 @@ const NSRect kPageFrame = {0, 0, 2550, 3300};
     self = [super initWithFrame:kPageFrame];
     if (self) {
         flipSeries = [series retain];
+		templateImage = [[NSImage imageNamed:@"template"] retain];
     }
     return self;
 }
 
 - (void)dealloc {
 	self.flipSeries = nil;
+	[templateImage release];
 	[super dealloc];
 }
 
@@ -32,19 +34,35 @@ const NSRect kPageFrame = {0, 0, 2550, 3300};
 	[[NSColor whiteColor] set];
 	NSRectFill(dirtyRect);
 	
+	[templateImage drawInRect:dirtyRect 
+					 fromRect:NSZeroRect 
+					operation:NSCompositeSourceOver 
+					 fraction:1.0];
+	
 	if (flipSeries) {
-		int imgCount = 0;
-		for (NSImage *img in [flipSeries images]) {
-			NSSize origSize =  [img	size];
-			NSSize newSize = NSMakeSize(origSize.width/3, origSize.height/3);
-			NSRect imgRect = NSMakeRect(0, imgCount*newSize.height, 
-										newSize.width, newSize.height);
+		NSSize imageFrameSize = NSMakeSize(354, 267);
+		NSSize stapleSize = NSMakeSize(68, 267);
+		float margin = 5.0;
+
+		int numCols = 6;
+		int numRows = 8;
+		
+		int imgIndex = 0;
+		for (NSImage *img in [flipSeries images]) {					
+			float xPos = ((imgIndex * stapleSize.width) + stapleSize.width) +
+			(imgIndex * (imageFrameSize.width + margin));
+			float yPos = dirtyRect.size.height-imageFrameSize.height;
+			
+			NSRect imgRect = NSMakeRect(xPos, yPos, 
+										imageFrameSize.width, imageFrameSize.height);
 			[img drawInRect:imgRect 
 					 fromRect:NSZeroRect 
 					operation:NSCompositeSourceOver 
 					 fraction:1.0];			
-			imgCount++;
+			imgIndex++;
 		}
+		
+		NSLog(@"index: %i", imgIndex);
 	}
 }
 
