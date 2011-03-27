@@ -17,7 +17,6 @@
 - (NSString *)saveTemporaryPDF;
 @end
 
-
 @implementation PrintController
 
 @synthesize flipSeries;
@@ -52,6 +51,15 @@
 }
 
 - (IBAction)save:(id)sender {
+	NSSavePanel *savePanel = [NSSavePanel savePanel];
+	int result;
+	
+	[savePanel setRequiredFileType:@"pdf"];
+	result = [savePanel runModal];
+	
+	if (result == NSOKButton) {
+		[self saveToFile:[savePanel filename]];
+	}
 }
 
 - (void)saveToFile:(NSString *)path {
@@ -59,13 +67,12 @@
 }
 
 - (IBAction)print:(id)sender {
+	NSPrintOperation *printOperation = [NSPrintOperation printOperationWithView:pdfView];
+	NSPrintPanel *printPanel = [printOperation printPanel];
+	[printPanel setOptions:NSPrintPanelShowsCopies | NSPrintPanelShowsPaperSize | 
+	 NSPrintPanelShowsOrientation | NSPrintPanelShowsScaling | NSPrintPanelShowsPreview];
+	[printPanel runModal];
 }
-
-/*- (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)frameSize {
-	[hiddenPrintView setNeedsDisplay:YES];
-	double width = (frameSize.width >= 300) ? frameSize.width : 300;
-	return NSMakeSize(width, width*1.2941);
-}*/
 
 - (void)updatePDF {
 	NSData *pdfData = [hiddenPrintView dataWithPDFInsideRect:[hiddenPrintView frame]];

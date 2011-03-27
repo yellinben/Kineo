@@ -13,7 +13,6 @@
 @interface PrintController : NSWindowController {
 	IBOutlet PDFView *pdfView;
 	PrintView *hiddenPrintView;
-	//PrintView *printView;
 	FlipSeries *flipSeries;
 }
 @property (nonatomic, retain) FlipSeries *flipSeries;

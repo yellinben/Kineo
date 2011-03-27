@@ -19,7 +19,6 @@ const NSRect kPageFrame = {0, 0, 2550, 3300};
     self = [super initWithFrame:kPageFrame];
     if (self) {
         flipSeries = [series retain];
-		templateImage = [[NSImage imageNamed:@"template"] retain];
     }
     return self;
 }
@@ -34,11 +33,6 @@ const NSRect kPageFrame = {0, 0, 2550, 3300};
 	[[NSColor whiteColor] set];
 	NSRectFill(dirtyRect);
 	
-	/*[templateImage drawInRect:dirtyRect 
-					 fromRect:NSZeroRect 
-					operation:NSCompositeSourceOver 
-					 fraction:1.0];*/
-	
 	if (flipSeries) {
 		NSSize imageFrameSize = NSMakeSize(354, 267);
 		NSSize stapleSize = NSMakeSize(68, 267);
@@ -46,40 +40,12 @@ const NSRect kPageFrame = {0, 0, 2550, 3300};
 
 		int numCols = 6;
 		int numRows = 8;
-		
-		// Draw Title Box
-		/*float titleXPos = stapleSize.width;
-		float titleYPos = dirtyRect.size.height-imageFrameSize.height;
-		NSRect titleRect = NSMakeRect(titleXPos, titleYPos, 
-									  imageFrameSize.height, imageFrameSize.width);
-		NSTextView *titleBox = [[NSTextView alloc] initWithFrame:titleRect];
-		[titleBox setString:flipSeries.title];
-		[self addSubview:titleBox];
-		
-		// Draw Cut Line
-		NSBezierPath *cutLine = [NSBezierPath bezierPath];
-		[cutLine setLineWidth:2.0];			
-		CGFloat dashPattern[2] = {6.0, 3.0};
-		[cutLine setLineDash:dashPattern count:2 phase:0.0];
-		[cutLine moveToPoint:NSMakePoint(imageFrameSize.width+titleXPos+1, titleYPos)];
-		[cutLine lineToPoint:NSMakePoint(imageFrameSize.width+titleXPos+1, titleYPos+imageFrameSize.height)];
-		[cutLine stroke];
-		
-		// Staple Box
-		NSRect stapleRect = NSMakeRect(titleXPos-stapleSize.width, titleYPos, 
-									   stapleSize.width, stapleSize.height);
-		[[NSColor grayColor] set];
-		NSRectFill(stapleRect);	*/
-		
 				
 		int imgIndex = 0;
-		//int colCount = 0;
 		int rowIndex = 0;	
 		for (NSImage *img in [flipSeries images]) {														
 			float xPos = ((imgIndex * stapleSize.width) + stapleSize.width) +
-				(imgIndex * (imageFrameSize.width + margin));
-			float oldYPos = dirtyRect.size.height-imageFrameSize.height;
-			
+				(imgIndex * (imageFrameSize.width + margin));		
 			float yPos = (dirtyRect.size.height - (rowIndex * (imageFrameSize.height+margin))) - imageFrameSize.height;
 			
 			// Draw Staple Box
@@ -106,11 +72,9 @@ const NSRect kPageFrame = {0, 0, 2550, 3300};
 			[cutLine stroke];
 			
 			imgIndex++;
-			//colCount++;
-			
+
 			if (imgIndex > numCols) {
 				rowIndex++;
-				//colCount = 0;
 				imgIndex = 0;
 				
 				// Draw Row Line
@@ -121,9 +85,7 @@ const NSRect kPageFrame = {0, 0, 2550, 3300};
 				[rowLine lineToPoint:NSMakePoint(dirtyRect.size.width, yPos-2)];
 				[rowLine stroke];
 			}
-		}
-		
-		//NSLog(@"index: %i", imgIndex);
+		}		
 	}
 }
 

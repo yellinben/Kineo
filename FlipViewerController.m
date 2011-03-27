@@ -105,6 +105,7 @@
 }
 		 
 - (IBAction)print:(id)sender {
+	flipSeries.title = [titleField stringValue];
 	PrintController *printController = [[PrintController alloc] 
 										initWithFlipSeries:flipSeries];
 	[printController showWindow:nil];
