@@ -47,7 +47,6 @@
 
 - (NSString *)saveTemporaryPDF {
 	NSString *tempPath = [[NSFileManager defaultManager] createTemporaryFile];	
-	NSLog(@"temp: %@", tempPath);
 	[self saveToFile:tempPath];
 	return tempPath;
 }

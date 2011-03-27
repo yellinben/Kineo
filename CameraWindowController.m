@@ -15,12 +15,13 @@
 #import "NSImage+Extras.h"
 
 #define kFrameCount 5
+#define kRecordRate 0.5
 
 @interface CameraWindowController (Private)
 - (void)setupCamera;
 - (void)setupDevices;
 - (void)updateDevice;
-- (void)devicesChanged;
+- (void)devicesChanged:(NSNotification *)notification;
 - (void)setRecording:(BOOL)flag;
 @end
 
@@ -92,7 +93,7 @@
 											   object:nil];
 }
 
-- (void)devicesChanged {
+- (void)devicesChanged:(NSNotification *)notification {
 	[self setupDevices];
 }
 
@@ -125,7 +126,7 @@
 		self.currentFlipSeries = [[FlipSeries alloc] init];
 		currentFrameCount = 0;
 		[frameCountLabel setIntValue:kFrameCount];
-		[NSTimer scheduledTimerWithTimeInterval:1.0 
+		[NSTimer scheduledTimerWithTimeInterval:kRecordRate	 
 										 target:self 
 									   selector:@selector(recordingTimer:) 
 									   userInfo:nil 

@@ -15,6 +15,7 @@
 		3619092D133D1C3900EFDDE3 /* PrintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3619092C133D1C3900EFDDE3 /* PrintView.m */; };
 		36190946133E5F0D00EFDDE3 /* FlipDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 36190945133E5F0D00EFDDE3 /* FlipDocument.m */; };
 		36190B16133EA75D00EFDDE3 /* NSFileManager+TemporaryDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 36190B15133EA75D00EFDDE3 /* NSFileManager+TemporaryDirectory.m */; };
+		36190B34133EC94600EFDDE3 /* template.png in Resources */ = {isa = PBXBuildFile; fileRef = 36190B33133EC94600EFDDE3 /* template.png */; };
 		369C153E133695570052F775 /* CameraWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369C153D133695570052F775 /* CameraWindowController.m */; };
 		369C15401336957A0052F775 /* Camera.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369C153F1336957A0052F775 /* Camera.xib */; };
 		369C15441336A1340052F775 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369C15431336A1340052F775 /* QTKit.framework */; };
@@ -50,6 +51,7 @@
 		36190945133E5F0D00EFDDE3 /* FlipDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipDocument.m; sourceTree = "<group>"; };
 		36190B14133EA75D00EFDDE3 /* NSFileManager+TemporaryDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+TemporaryDirectory.h"; sourceTree = "<group>"; };
 		36190B15133EA75D00EFDDE3 /* NSFileManager+TemporaryDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+TemporaryDirectory.m"; sourceTree = "<group>"; };
+		36190B33133EC94600EFDDE3 /* template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = template.png; sourceTree = SOURCE_ROOT; };
 		369C153C133695570052F775 /* CameraWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraWindowController.h; sourceTree = "<group>"; };
 		369C153D133695570052F775 /* CameraWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraWindowController.m; sourceTree = "<group>"; };
 		369C153F1336957A0052F775 /* Camera.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Camera.xib; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				36190B33133EC94600EFDDE3 /* template.png */,
 				8D1107310486CEB800E47090 /* Kineo-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -226,6 +229,7 @@
 				369C15401336957A0052F775 /* Camera.xib in Resources */,
 				369C15631336A7AD0052F775 /* FlipViewer.xib in Resources */,
 				36190929133D1C2900EFDDE3 /* Print.xib in Resources */,
+				36190B34133EC94600EFDDE3 /* template.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
