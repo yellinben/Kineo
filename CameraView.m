@@ -19,16 +19,7 @@
     return self;
 }
 
-- (void)drawRect:(NSRect)dirtyRect {    
-	/*NSLog(@"draw rect");	
-	if (showFlash) {
-		NSLog(@"flash");
-		[[NSColor whiteColor] set];
-		NSRectFill(dirtyRect);
-		//showFlash = NO;
-	} else {
-		[super drawRect:dirtyRect];
-	}*/
+- (void)drawRect:(NSRect)dirtyRect {
 	[super drawRect:dirtyRect];
 }
 
