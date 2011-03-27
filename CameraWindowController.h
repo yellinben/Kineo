@@ -40,5 +40,8 @@
 - (IBAction)startRecording:(id)sender; 
 - (IBAction)changeDevice:(id)sender;
 - (IBAction)showPreferences:(id)sender;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4bc11762c3e0d0afced952a438aa4ca3b653c33f
 @end
