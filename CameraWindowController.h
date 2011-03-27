@@ -9,7 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import <QTKit/QTKit.h>
 
-/*@class QTCaptureView, QTCaptureSession, QTCaptureDecompressedVideoOutput;*/
 @class CameraView;
 @class CIImage;
 @class FlipSeries;
@@ -18,16 +17,20 @@
 	IBOutlet CameraView *camView;
 	IBOutlet NSButton *recordButton;
 	IBOutlet NSTextField *frameCountLabel;
+	IBOutlet NSPopUpButton *devicePicker;
 	
+	NSMutableArray *deviceList;
+	QTCaptureDevice *currentVideoDevice;
 	QTCaptureSession *videoSession;
 	QTCaptureDecompressedVideoOutput  *videoOutput;
 	BOOL isRecording;
 	CVImageBufferRef currentImageBuffer;
 	
 	FlipSeries *currentFlipSeries;
-	NSInteger currentFlipCount;
+	NSInteger currentFrameCount;
 }
 @property (readonly) BOOL isRecording;
 @property (nonatomic, assign) FlipSeries *currentFlipSeries;
 - (IBAction)startRecording:(id)sender; 
+- (IBAction)changeDevice:(id)sender;
 @end

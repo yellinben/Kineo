@@ -18,6 +18,9 @@
 
 @interface CameraWindowController (Private)
 - (void)setupCamera;
+- (void)setupDevices;
+- (void)updateDevice;
+- (void)devicesChanged;
 - (void)setRecording:(BOOL)flag;
 @end
 
@@ -30,6 +33,13 @@
 	isRecording = NO;
 	[self setupCamera];
 	[frameCountLabel setHidden:YES];
+	[devicePicker removeAllItems];
+}
+
+- (void)dealloc {
+	[deviceList release];
+	self.currentFlipSeries = nil;
+	[super dealloc];
 }
 
 - (void)setupCamera {
@@ -38,8 +48,7 @@
 							   defaultInputDeviceWithMediaType:QTMediaTypeVideo];
 	[device open:nil];
 	
-	QTCaptureDeviceInput *deviceInput = [QTCaptureDeviceInput deviceInputWithDevice:device];
-	[videoSession addInput:deviceInput error:nil];
+	[self setupDevices];
 	
 	videoOutput = [[QTCaptureDecompressedVideoOutput alloc] init];
 	[videoOutput setDelegate:self];
@@ -47,6 +56,63 @@
 	[videoSession startRunning];
 	
 	[camView setCaptureSession:videoSession];
+}
+
+- (void)setupDevices {
+	currentVideoDevice = [[QTCaptureDevice 
+						   defaultInputDeviceWithMediaType:QTMediaTypeVideo] retain];
+	
+	if (deviceList) {
+		[deviceList release];
+		deviceList = nil;
+	}
+	deviceList = [[NSMutableArray alloc] 
+				  initWithArray:[QTCaptureDevice 
+								 inputDevicesWithMediaType:QTMediaTypeVideo]];	
+	if ([deviceList count] > 1) {
+		for (QTCaptureDevice *device in deviceList) {			
+			[devicePicker addItemWithTitle:[device description]];
+		}
+		[devicePicker setHidden:NO];		
+	} else {
+		[devicePicker setHidden:YES];
+	}		
+	
+	[self updateDevice];
+	
+	
+	// Device Notifications
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(devicesChanged:) 
+												 name:QTCaptureDeviceWasConnectedNotification 
+											   object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(devicesChanged:) 
+												 name:QTCaptureDeviceWasDisconnectedNotification 
+											   object:nil];
+}
+
+- (void)devicesChanged {
+	[self setupDevices];
+}
+
+- (void)updateDevice {
+	// Remove Current Device
+	[videoSession removeInput:[QTCaptureDeviceInput deviceInputWithDevice:currentVideoDevice]];
+	 
+	QTCaptureDeviceInput *deviceInput = [QTCaptureDeviceInput deviceInputWithDevice:currentVideoDevice];
+	
+	NSError *err = nil;	
+	[videoSession addInput:deviceInput error:&err];
+	if (err) {
+		NSLog(@"Video Error: %@", [err description]);
+	}
+}	
+
+- (IBAction)changeDevice:(id)sender {
+	NSInteger selectedIndex = [devicePicker indexOfSelectedItem];
+	currentVideoDevice = [[deviceList objectAtIndex:selectedIndex] retain];
+	[self updateDevice];
 }
 
 - (void)setRecording:(BOOL)flag {
@@ -57,7 +123,7 @@
 	if (isRecording) {
 		[videoSession startRunning];
 		self.currentFlipSeries = [[FlipSeries alloc] init];
-		currentFlipCount = 0;
+		currentFrameCount = 0;
 		[frameCountLabel setIntValue:kFrameCount];
 		[NSTimer scheduledTimerWithTimeInterval:1.0 
 										 target:self 
@@ -96,14 +162,14 @@
 #pragma mark Recording
 
 - (void)recordingTimer:(NSTimer *)timer {
-	if (currentFlipCount <= kFrameCount) {
+	if (currentFrameCount <= kFrameCount) {
 		if (currentImageBuffer) {
 			CIImage *camImage = [CIImage imageWithCVImageBuffer:currentImageBuffer];
 			[currentFlipSeries addImage:
 			 [NSImage imageFromCIImage:camImage]];
 			
-			[frameCountLabel setIntValue:(kFrameCount-currentFlipCount)];
-			currentFlipCount++;
+			[frameCountLabel setIntValue:(kFrameCount-currentFrameCount)];
+			currentFrameCount++;
 		}
 	} else {
 		[timer invalidate];
@@ -113,6 +179,8 @@
 		FlipViewerController *flipViewer = [[FlipViewerController alloc] initWithFlipSeries:currentFlipSeries];
 		[flipViewer showWindow:nil];
 		self.currentFlipSeries = nil;
+		
+		currentFrameCount = 0;
 	}
 
 }
